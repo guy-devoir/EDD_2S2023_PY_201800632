@@ -239,14 +239,14 @@ void DoubleList::generateGraphvizFileEmp(std::string fileName)
         NodeSimple *current = this->head;
         while (current != NULL)
         {
-            text += current->value_emp.name + ";\n";
+            text += "\"" + current->value_emp.name +"\""+ ";\n";
             if (current->next != NULL)
             {
-                text += current->value_emp.name + "->" + current->next->value_emp.name + ";\n";
+                text += "\""+current->value_emp.name + "\""+ "->" + "\"" + current->next->value_emp.name+ "\"" + ";\n";
             }
             if (current->prev != NULL)
             {
-                text += current->value_emp.name + "->" + current->prev->value_emp.name + ";\n";
+                text += "\"" + current->value_emp.name + "\"" + "->" + "\"" +current->prev->value_emp.name + "\"" + ";\n";
             }
             current = current->next;
         }

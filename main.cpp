@@ -85,13 +85,16 @@ void menu_proyectos()
     while (control)
     {
         std::cout << "Seleccione una opción:\n";
-        std::cout << "2 - Crear Proyecto\n2 - Salir\n";
+        std::cout << "1 - Crear Proyecto\n2 - Salir\n";
 
         std::cin >> choice;
         switch (choice)
         {
         case 1:
+            std::cout << "Nombre: " << endl ;
             std::cin >> aux_name;
+            std::cout << "Seleccione la prioridad: " << endl ;
+            std::cout << "1 - Prioridad A\n2 - Prioridad B\n3 - Prioridad C" << endl ;
             std::cin >> choice_two;
             if (choice_two == 1)
             {
