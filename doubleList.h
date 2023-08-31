@@ -25,6 +25,7 @@ private:
     NodeSimple *head;
     NodeSimple *search(std::string value);
     NodeSimple *searchEmp(std::string value);
+    NodeSimple *searchByIndex(int value);
     
 };
 

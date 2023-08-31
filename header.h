@@ -23,12 +23,13 @@ struct Empleado
 struct Proyecto
 {
     char prioridad ;
-    std::string nombre ;
+    std::string nombre, id ;
     Proyecto(){
 
     }
 
-    Proyecto(std::string name, char prioridad){
+    Proyecto(std::string id, std::string name, char prioridad){
+        this->id = id ;
         this->nombre = name;
         this->prioridad = prioridad;
     }

@@ -8,6 +8,11 @@
 #include "header.h"
 #include "matriz.h"
 #include "doubleList.h"
+/*
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+*/
 
 SparseMatrix *matrix = new SparseMatrix();
 DoubleList *empleados = new DoubleList();
@@ -58,11 +63,13 @@ void readCSV(std::string nombreArchivo)
 
 void convert_char(std::string aux_name, std::string aux_prioridad)
 {
+    std::string id = "PY-" + to_string(no_pry);
     char *cstr = new char[aux_prioridad.length() + 1];
-    proyectos->add(Proyecto(aux_name, *cstr));
+    proyectos->add(Proyecto(id, aux_name, *cstr));
     strcpy(cstr, aux_prioridad.c_str());
     // do stuff
     delete[] cstr;
+    no_pry++;
 }
 
 void menu_proyectos()
@@ -151,17 +158,17 @@ void menu_empleados()
             {
             case 1:
                 no_empl++;
-                tempID = "FDEV" + to_string(no_empl);
+                tempID = "FDEV-" + to_string(no_empl);
                 tempRole = "FRONTEND DEVELOPER";
                 break;
             case 2:
                 no_empl++;
-                tempID = "BDEV" + to_string(no_empl);
+                tempID = "BDEV-" + to_string(no_empl);
                 tempRole = "BACKEND DEVELOPER";
                 break;
             case 3:
                 no_empl++;
-                tempID = "QA" + to_string(no_empl);
+                tempID = "QA-" + to_string(no_empl);
                 tempRole = "QUALITY ASSURANCE";
                 break;
             default:
@@ -190,6 +197,24 @@ void menu_empleados()
     }
 }
 
+void desp()
+{
+    int aux1;
+    int aux2;
+    std::string tarea;
+    std::cout << "Seleccionar EMPLEADOS" << endl;
+    empleados->printListEmp();
+    std::cin >> aux1;
+    std::cout << "Seleccionar PROYECTOS" << endl;
+    proyectos->printList();
+    std::cin >> aux2;
+    std::cout << "Nombre de la tarea: ";
+    std::cin >> tarea;
+
+    matrix->createNodeTarea(aux1, aux2, tarea);
+    matrix->getGraphviz();
+}
+
 void menu()
 {
     int choice;
@@ -198,7 +223,7 @@ void menu()
     while (control)
     {
         std::cout << "Seleccione una opción:\n";
-        std::cout << "1 - Cargar empleados\n2 - Crear proyecto\n3 - Crear tarea\n4 - Asignar tareas\n5 - Salir\n";
+        std::cout << "1 - Cargar empleados\n2 - Crear proyecto\n3 - Asignar tareas\n4 - Ver Empleados \n5 - Salir\n";
 
         std::cin >> choice;
         switch (choice)
@@ -210,6 +235,7 @@ void menu()
             menu_proyectos();
             break;
         case 3:
+            desp();
             break;
         case 4:
             std::cout << "ID    :  NOMBRE   :   ROL \n";

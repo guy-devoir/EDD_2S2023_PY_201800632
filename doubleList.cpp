@@ -41,14 +41,16 @@ NodeSimple *DoubleList::search(std::string value)
 void DoubleList::printList()
 {
     NodeSimple *current = this->head;
+    int control = 1 ;
     while (current != NULL)
     {
         /*if (current->value == value)
         {
             return current;
         }*/
-        std::cout << "Nombre de Proyecto: " << current->value_pry.nombre << "\n";
+        std::cout << std::to_string(control) << " - Nombre de Proyecto: " << current->value_pry.nombre << "\n";
         current = current->next;
+        control++ ;
     }
 }
 
@@ -160,14 +162,16 @@ NodeSimple *DoubleList::searchEmp(std::string value)
 void DoubleList::printListEmp()
 {
     NodeSimple *current = this->head;
+    int control = 1;
     while (current != NULL)
     {
         /*if (current->value == value)
         {
             return current;
         }*/
-        std::cout << current->value_emp.id << " : " << current->value_emp.name << " : " << current->value_emp.role << "\n";
+        std::cout << std::to_string(control) << " - " << current->value_emp.id << " : " << current->value_emp.name << " : " << current->value_emp.role << "\n";
         current = current->next;
+        control++;
     }
 }
 
@@ -258,4 +262,21 @@ void DoubleList::generateGraphvizFileEmp(std::string fileName)
     {
         printf("Error al generar el archivo\n");
     }
+}
+
+/**/
+
+NodeSimple *DoubleList::searchByIndex(int value)
+{
+    NodeSimple *current = this->head;
+    int control = 1;
+    while (current != NULL)
+    {
+        if (control == value)
+        {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;
 }

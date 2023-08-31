@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/lucia/OneDrive/Documentos/Proyecto_EDD",
-      "program": "c:/Users/lucia/OneDrive/Documentos/Proyecto_EDD/build/Debug/outDebug",
+      "cwd": "c:/Users/lucia/OneDrive/Documentos/EDD_2S2023_PY_201800632",
+      "program": "c:/Users/lucia/OneDrive/Documentos/EDD_2S2023_PY_201800632/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
