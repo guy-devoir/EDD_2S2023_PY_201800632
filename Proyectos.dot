@@ -1,4 +1,13 @@
 digraph G {
 node [shape=record];
-Laureano;
+Proyecto1;
+Proyecto1->Proyecto2;
+Proyecto2;
+Proyecto2->Proyecto3;
+Proyecto2->Proyecto1;
+Proyecto3;
+Proyecto3->Pr4;
+Proyecto3->Proyecto2;
+Pr4;
+Pr4->Proyecto3;
 }

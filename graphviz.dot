@@ -1,0 +1,15 @@
+digraph G {
+node [shape=box];
+Mt[ label ="Cabeza", width = 1.5, style = filled, fillcolor = firebrick1, group = 1 ];
+e0[ shape = point, width = 0 ];
+e1[ shape = point, width = 0 ];
+Mt -> node1headĞòß^~;
+node1head0óß^~ [label="F1" width = 1.5 style = filled, fillcolor = bisque1, group = 1];
+Mt -> nodehead4Pôß^~;
+nodehead4€õß^~ [label="C4 " width = 1.5 style = filled, fillcolor = lightskyblue, group = 1000 ];
+{ rank = same; Mt; nodehead4ÿ; };
+node14Àöß^~ [label="1591735952 " width = 1.5, group = 1004 ];
+node1headPøß^~ -> node14ğ÷ß^~;
+nodehead4ùß^~ -> node14°øß^~;
+{ rank = same; node1headÿ; node14UX; };
+}

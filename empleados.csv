@@ -1,0 +1,30 @@
+id,nombre,contraseña,puesto
+FDEV-001,Cristian Suy,hec120,Frontend Developer
+FDEV-002,Alberto Mejia,hec121,Frontend Developer
+FDEV-003,Paula Fuentes,hec122,Frontend Developer
+FDEV-004,Hector Gomez,hec123,Frontend Developer
+FDEV-005,franco armani,hec124,Frontend Developer
+FDEV-006,juan marcos,hec125,Frontend Developer
+FDEV-007,nicolas alejandro,hec126,Frontend Developer
+FDEV-008,renzo saravia,hec127,Frontend Developer
+FDEV-009,leandro daniel paredes,hec128,Frontend Developer
+FDEV-010,romerto maximiliano pereyra,hec129,Frontend Developer
+FDEV-011,lionel andres messi,hec130,Frontend Developer
+BDEV-012,angel fabian di maria,hec131,Backend Developer
+BDEV-013,agustin federico marchesin,hec132,Backend Developer
+BDEV-014,jose ramiro funes mori,hec133,Backend Developer
+BDEV-015,guido pizarro,hec134,Backend Developer
+BDEV-016,rodrigo javier de paul,hec135,Backend Developer
+BDEV-017,lionel scaloni,hec136,Backend Developer
+BDEV-018,lautaro javier martinez,hec137,Backend Developer
+BDEV-019,jose maria ginmenez de vargas,hec138,Backend Developer
+BDEV-020,diego roberto godin leal,hec139,Backend Developer
+QA-021,luis alberto suarez diaz,hec140,Quality Assurance
+QA-022,gaston rodrigo pereiro lopez,hec141,Quality Assurance
+QA-023,martin andres silva leites,hec142,Quality Assurance
+QA-024,gaku shibasaki,hec143,Quality Assurance
+QA-025,koji miyoshi,hec144,Quality Assurance
+QA-026,yugo tatsuta,hec145,Quality Assurance
+QA-027,keisuke osako,hec146,Quality Assurance
+QA-028,yuta nakayama,hec147,Quality Assurance
+QA-029,eiji kawashima,hec148,Quality Assurance
