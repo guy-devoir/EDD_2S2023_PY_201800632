@@ -3,7 +3,7 @@ import json
 import os
 from avl_tree import AVL_Tree, TreeNode, Proyect
 from arbol_b import ArbolB, Nodo
-from tkinter import Entry, Frame, Button, Label
+from tkinter import Entry, Frame, Button, Label, Scrollbar
 from tkinter import ttk
 from tkinter import filedialog as fd
 import tkinter.messagebox as tkmb
@@ -219,6 +219,8 @@ root = tkinter.Tk()
 
 root.title("Proyecto FASE 2")
 
+
+
 #Para los elementos del Login
 login_frame = Frame(root)
 internal_frame = Frame(login_frame)
@@ -249,6 +251,9 @@ tab3 = Frame(tabControl)
 tabControl.add(tab1, text="Usuarios")
 tabControl.add(tab2, text="Proyecto y Tareas")
 #tabControl.add(tab3, text="Tareas")
+
+scrollbar = Scrollbar(tab1)
+scrollbar.pack( side = 'right', fill='y' )
 
 tabControl.pack()
 
@@ -284,7 +289,7 @@ users_load_bttn = Button(top_frame_pry, text="Cargar JSON", fg="red", command=re
 users_load_bttn.pack()
 report_pry = Button(top_frame_pry, text="Reporte Proyectos", fg="red", command=reporte_proyecto)
 report_pry.pack()
-ass_report = Button(top_frame_pry, text="Cargar JSON", fg="red", command=reporte_tareas)
+ass_report = Button(top_frame_pry, text="Reporte Tareas", fg="red", command=reporte_tareas)
 ass_report.pack()
 
 
@@ -307,8 +312,8 @@ cab_tar.pack()
 bottom_frame = Frame(main_gui)
 bottom_frame.pack(padx=5, pady=5)
 
-log_out_button = Button(bottom_frame, text="Log Out", fg="red", command=log_out)
-log_out_button.grid(row = 1, column = 1, pady = 2)
+log_out_button = Button(top_frame, text="Log Out", fg="red", command=log_out)
+log_out_button.pack()
 #######
 
 login_frame.pack()
