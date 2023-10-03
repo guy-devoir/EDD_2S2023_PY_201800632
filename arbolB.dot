@@ -1,0 +1,7 @@
+digraph G {
+ node [shape=record]node539 [label="539\nMentir"];
+node539->node537
+node537 [label="537\nGenerar|538\nCrear"];
+node539->node541
+node541 [label="541\nBase de Datos|542\nComplejas oraciones para ver como va|544\n3D Printing stuff, probably|545\nD LIST THIS, HEHEHEHE, colors"];
+}

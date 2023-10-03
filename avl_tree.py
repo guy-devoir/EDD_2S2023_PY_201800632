@@ -1,3 +1,6 @@
+import os
+cmd = "dot -Tpng arbolAVL.dot -o arbolAVL.png"
+
 class TreeNode(object):
 	def __init__(self, val, content):
 		self.val = val
@@ -7,16 +10,14 @@ class TreeNode(object):
 		self.height = 1
 
 class Proyect(object):
-	def __init__(self):
-		self.id = ""
-		self.nombre = ""
-		self.prioridad = ""
-		pass
+	def __init__(self, id, nombre, prioridad):
+		self.id = id
+		self.nombre = nombre
+		self.prioridad = prioridad
 
 class AVL_Tree(object):
 
 	def insert(self, root, key, content):
-		# Step 1 - Perform normal BST
 		if not root:
 			return TreeNode(key, content)
 		elif key < root.val:
@@ -24,30 +25,21 @@ class AVL_Tree(object):
 		else:
 			root.right = self.insert(root.right, key, content)
 
-		# Step 2 - Update the height of the
-		# ancestor node
 		root.height = 1 + max(self.getHeight(root.left),
 						self.getHeight(root.right))
 
-		# Step 3 - Get the balance factor
 		balance = self.getBalance(root)
 
-		# Step 4 - If the node is unbalanced,
-		# then try out the 4 cases
-		# Case 1 - Left Left
 		if balance > 1 and key < root.left.val:
 			return self.rightRotate(root)
 
-		# Case 2 - Right Right
 		if balance < -1 and key > root.right.val:
 			return self.leftRotate(root)
 
-		# Case 3 - Left Right
 		if balance > 1 and key > root.left.val:
 			root.left = self.leftRotate(root.left)
 			return self.rightRotate(root)
 
-		# Case 4 - Right Left
 		if balance < -1 and key < root.right.val:
 			root.right = self.rightRotate(root.right)
 			return self.leftRotate(root)
@@ -138,3 +130,29 @@ class AVL_Tree(object):
 			return self.search(root.left, key)
 		else:
 			return self.search(root.right, key)
+		
+	def export_graphviz(self, root):
+		dotContent = "digraph G {\n node [margin=0 fontcolor=blue fontsize=10 width=0.5 shape=rec ] \n" + self.aux_export_graphviz(root) + "}"
+		f = open("arbolAVL.dot", "w")
+		f.write(dotContent)
+		f.close()
+		os.system(cmd)
+
+	def aux_export_graphviz(self, root):
+		if not root:
+			return
+		rootNode = "node{0}".format(root.val) + \
+			"[label=\"{0}-{1}\"]\n".format(root.val, root.content.id)
+		value = rootNode + "\n"
+
+		leftNode = self.aux_export_graphviz(root.left)
+		rightNode = self.aux_export_graphviz(root.right)
+
+		if root.left:
+			value += "node{0}".format(root.val) + \
+				" -> node{0}\n".format(root.left.val) + leftNode
+		if root.right:
+			value += "node{0}".format(root.val) + \
+				" -> node{0}\n".format(root.right.val) + rightNode
+
+		return value

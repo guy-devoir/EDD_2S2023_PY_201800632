@@ -1,0 +1,53 @@
+{
+    "Proyectos": [
+        {
+            "id":"PY-100",
+            "nombre":"Sistemas de Inventario",
+            "tareas" : [
+                {
+                    "nombre":"Generar",
+                    "empleado" : "BDEV-001"
+                },
+                {
+                    "nombre":"Crear",
+                    "empleado" : "FDEV-001"
+                },
+                {
+                    "nombre":"Mentir",
+                    "empleado" : "QA-001"
+                }
+            ],
+            "prioridad":"A"
+        },
+        {
+            "id":"PY-101",
+            "nombre":"Sitio Porno",
+            "tareas" : [
+                {
+                    "nombre":"Base de Datos",
+                    "empleado" : "BDEV-001"
+                },
+                {
+                    "nombre":"Complejas oraciones para ver como va",
+                    "empleado" : "BDEV-001"
+                }
+            ],
+            "prioridad":"B"
+        },
+        {
+            "id":"PY-102",
+            "nombre":"test",
+            "tareas" : [
+                {
+                    "nombre":"3D Printing stuff, probably",
+                    "empleado" : "QA-010"
+                },
+                {
+                    "nombre":"D LIST THIS, HEHEHEHE, colors",
+                    "empleado" : "BDEV-001"
+                }
+            ],
+            "prioridad":"C"
+        }
+    ]
+}

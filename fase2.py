@@ -1,17 +1,19 @@
 import tkinter
 import json
-import avl_tree
-#from tabulate import tabulate
+import os
+from avl_tree import AVL_Tree, TreeNode, Proyect
+from arbol_b import ArbolB, Nodo
 from tkinter import Entry, Frame, Button, Label
 from tkinter import ttk
 from tkinter import filedialog as fd
 import tkinter.messagebox as tkmb
 
 cabezera = [["","ID","Nombre","Contraseña","Puesto"]]
+
+#values_box = []
+
 hash_table = []
 hash_table_len = 5
-
-datos = None
 
 class Table:
     def __init__(self, root, table, cab):
@@ -29,7 +31,19 @@ class Table:
                     self.e.grid(row=i, column=j)
                     self.e.insert(1 , table[i][j])
 
-def read_file():
+def read_json():
+    global control_AVL
+    global control_B
+    global PRY_TREE
+    global root
+    global B
+
+    B = ArbolB()
+    control_AVL = 1
+    control_B = 1
+    PRY_TREE = AVL_Tree()
+    root = None
+
     filetypes = (
         ('text files', '*.json'),
         ('All files', '*.*')
@@ -40,8 +54,35 @@ def read_file():
         filetypes=filetypes
     )
 
-    with open(path) as archivo:
-        datos = json.load(archivo)
+    json_file = open(path, "r", encoding="utf-8")
+
+    datos = json.load(json_file)
+
+    for proyecto in datos['Proyectos']:
+        try:
+            root = PRY_TREE.insert(root, control_AVL, Proyect(id=proyecto['id'], nombre=proyecto['nombre'], prioridad=proyecto['prioridad']))
+            control_AVL += 1
+            for tarea in proyecto['tareas']:
+                #Acá se pondra el Árbol B
+                tarea_id = "T" + str(control_B) + "-" + proyecto['id']
+                B.insertar(
+                    Nodo(
+                        clave=hash_code(tarea_id), 
+                        id=tarea_id , 
+                        valor=tarea['nombre'], 
+                        empleado=tarea['empleado'],
+                        proyecto=proyecto['id'])
+                    )
+                #combo.insert(control_B, tarea['nombre'])
+                control_B += 1
+        except Exception as e:
+            raise e
+    
+    PRY_TREE.export_graphviz(root)
+
+    B.generate_dot_b_tree(B.raiz)
+    
+    #PRY_TREE.preOrder(root)
     
 def hash_code(string):
     lst = 0
@@ -116,11 +157,7 @@ def load_users():
                 
         archivo.close()
 
-        print(hash_table)
-
         sort_hash(hash_table, 0, len(hash_table) - 1)
-
-        print("\n", hash_table)
 
         global t2
         t2 = Table(root=frame, table=hash_table, cab=False)
@@ -137,13 +174,50 @@ def log_in():
         if user == "admin" and password == "admin":
             login_frame.pack_forget()
             main_gui.pack()
-            tkmb.showinfo(title="Login Successful", message="Admin")
+            ##tkmb.showinfo(title="Login Successful", message="Admin")
         else:
-            pass
+            for i in range(len(hash_table)):
+                print(user == hash_table[i][1], "fs", password ==hash_table[i][3])
+
+                if user == hash_table[i][1] or user == hash_table[i][2]:
+                    if password == hash_table[i][3]:
+                        login_frame.pack_forget()
+                        main_gui.pack()
+                        #tkmb.showinfo(title="Login Successful", message="Admin")
+                    else:
+                        login_frame.pack_forget()
+                        main_gui.pack()
     except Exception as e:
         raise e
 
+def exportar_hash():
+    dotContent = "digraph G {\n node [shape=record ] \n" + aux_export_graphiz() + "}"
+    f = open("HashTable.dot", "w")
+    f.write(dotContent)
+    f.close()
+    cmd = "dot -Tpng HashTable.dot -o HashTable.png"
+    os.system(cmd)
+
+def aux_export_graphiz():
+    string = ""
+
+    for i in range(0, hash_table_len):
+        print(i, " ", hash_table_len)
+        if i <= (len(hash_table)-1):
+            string += "nodo{0}".format(str(i)) + "[label=\"<f0> {0} |<f1> {1} |<f2> {2} \"]\n".format(hash_table[i][0],hash_table[i][1],hash_table[i][2])
+        else:
+            string += "nodo{0}".format(str(i)) + "[label=\"Vacio\"]\n"
+        
+        if i != (hash_table_len - 1):
+            string += "nodo{0}->nodo{1}\n".format(str(i), str(i+1))
+        else:
+            pass
+    
+    return string
+
 root = tkinter.Tk()
+
+root.title("Proyecto FASE 2")
 
 #Para los elementos del Login
 login_frame = Frame(root)
@@ -170,40 +244,73 @@ tabControl = ttk.Notebook(main_gui)
 tab1 = Frame(tabControl)
 tab2 = Frame(tabControl)
 tab3 = Frame(tabControl)
+#tab3 = Frame(tabControl)
 
 tabControl.add(tab1, text="Usuarios")
-tabControl.add(tab2, text="Proyecto")
-tabControl.add(tab3, text="Tareas")
+tabControl.add(tab2, text="Proyecto y Tareas")
+#tabControl.add(tab3, text="Tareas")
 
 tabControl.pack()
+
 top_frame = Frame(tab1)
 top_frame.pack( side = "top", padx=10, pady=10 )
-#redbutton = Button(top_frame, text="Cargar Json", fg="red", command=read_file)
-#redbutton.pack()
 
 users_load_bttn = Button(top_frame, text="Cargar Usuarios", fg="red", command=load_users)
 users_load_bttn.pack()
 
+reporte_users = Button(top_frame, text="Reporte Usuarios", command=exportar_hash)
+reporte_users.pack()
+
+cab_frame = Frame(tab1)
+cab_frame.pack(padx=20)
+
+t = Table(root=cab_frame, table=cabezera, cab=True)
+
 frame = Frame(tab1)
 frame.pack(padx=20, pady=20)
 
-t = Table(root=frame, table=cabezera, cab=True)
+####################
 
-'''
-usuarios_button = Button(bottom_frame, text="Log Out", fg="red", command=log_out)
-usuarios_button.grid(row = 0, column = 0, pady = 2)
-pry_bttn = Button(bottom_frame, text="Log Out", fg="red", command=log_out)
-pry_bttn.grid(row = 0, column = 1, pady = 2)
-ass_bttn = Button(bottom_frame, text="Log Out", fg="red", command=log_out)
-ass_bttn.grid(row = 0, column = 2, pady = 2)
-'''
+top_frame_pry = Frame(tab2)
+top_frame_pry.pack(padx=20, pady=20)
+
+def reporte_proyecto():
+    PRY_TREE.export_graphviz(root)
+
+def reporte_tareas():
+    B.generate_dot_b_tree(B.raiz)
+
+users_load_bttn = Button(top_frame_pry, text="Cargar JSON", fg="red", command=read_json)
+users_load_bttn.pack()
+report_pry = Button(top_frame_pry, text="Reporte Proyectos", fg="red", command=reporte_proyecto)
+report_pry.pack()
+ass_report = Button(top_frame_pry, text="Cargar JSON", fg="red", command=reporte_tareas)
+ass_report.pack()
+
+
+middle_frame_pry = Frame(tab2)
+middle_frame_pry.pack()
+
+
+###########
+
+top_frame_tra = Frame(tab3)
+top_frame_tra.pack(padx=20, pady=20)
+
+combo = ttk.Combobox(top_frame_tra)
+combo.pack()
+
+cab_tar = Frame(tab3)
+cab_tar.pack()
+
+# NO TOCAR
 bottom_frame = Frame(main_gui)
 bottom_frame.pack(padx=5, pady=5)
 
 log_out_button = Button(bottom_frame, text="Log Out", fg="red", command=log_out)
 log_out_button.grid(row = 1, column = 1, pady = 2)
+#######
 
-
-main_gui.pack()
+login_frame.pack()
 
 root.mainloop()

@@ -1,0 +1,18 @@
+digraph G {
+ node [shape=record ] 
+nodo0[label="<f0> 336 |<f1> QA-001 |<f2>  Napoleon "]
+nodo0->nodo1
+nodo1[label="<f0> 337 |<f1> QA-002 |<f2>  Tresito "]
+nodo1->nodo2
+nodo2[label="<f0> 479 |<f1> BDEV-001 |<f2>  Besito "]
+nodo2->nodo3
+nodo3[label="<f0> 487 |<f1> FDEV-005 |<f2>  Kraftwerk "]
+nodo3->nodo4
+nodo4[label="<f0> 488 |<f1> FDEV-006 |<f2>  KraftCheese "]
+nodo4->nodo5
+nodo5[label="Vacio"]
+nodo5->nodo6
+nodo6[label="Vacio"]
+nodo6->nodo7
+nodo7[label="Vacio"]
+}
