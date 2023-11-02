@@ -8,6 +8,7 @@ struct Empleado
 {
     std::string id, name, password, role ;
     
+
     Empleado(){
 
     }

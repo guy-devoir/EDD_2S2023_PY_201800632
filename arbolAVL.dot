@@ -1,5 +1,8 @@
 digraph G {
  node [margin=0 fontcolor=blue fontsize=10 width=0.5 shape=rec ] 
+node4[label="4-PY-103"]
+
+node4 -> node2
 node2[label="2-PY-101"]
 
 node2 -> node1
@@ -7,5 +10,20 @@ node1[label="1-PY-100"]
 
 node2 -> node3
 node3[label="3-PY-102"]
+
+node4 -> node6
+node6[label="6-PY-105"]
+
+node6 -> node5
+node5[label="5-PY-104"]
+
+node6 -> node8
+node8[label="8-PY-107"]
+
+node8 -> node7
+node7[label="7-PY-106"]
+
+node8 -> node9
+node9[label="9-PY-108"]
 
 }

@@ -1,7 +1,23 @@
 digraph G {
- node [shape=record]node539 [label="539\nMentir"];
+ node [shape=record]node546 [label="546\nRealizar pruebas de calidad en carrito de compra|595\nImplementar el sistema de pedidos en línea"];
+node546->node539
+node539 [label="539\nProbar barra de busqueda|543\nEscribir el contenido del blog de comida"];
 node539->node537
-node537 [label="537\nGenerar|538\nCrear"];
+node537 [label="537\nGenerar Consultas del area de destornilladores|538\nMostrar Herramientas de trabajo"];
 node539->node541
-node541 [label="541\nBase de Datos|542\nComplejas oraciones para ver como va|544\n3D Printing stuff, probably|545\nD LIST THIS, HEHEHEHE, colors"];
+node541 [label="541\nDiseñar el logotipo|542\nCrear la página de inicio"];
+node546->node589
+node589 [label="589\nCrear una interfaz de usuario para la gestión de inventario|592\nGenerar informes de inventario"];
+node589->node586
+node586 [label="586\nRealizar pruebas de calidad en login|588\nActualizar el inventario de productos"];
+node589->node589
+node589 [label="589\nOptimizar el rendimiento del sitio web|590\nRealizar un conteo físico de existencias|591\nAgregar nuevos productos al sistema|591\nDiseñar la página de inicio"];
+node546->node597
+node597 [label="597\nPruebas de usabilidad en el proceso de pedido|601\nImplementar un sistema de pedidos en línea"];
+node597->node595
+node595 [label="595\nOptimizar el rendimiento del sitio web|595\nOptimizar el rendimiento del sitio web|596\nCrear una galería de imágenes de pizzas|596\nDiseñar un blog de recetas de pasteles"];
+node597->node597
+node597 [label="597\nIntegrar el sitio web con las redes sociales|598\nConfigurar un sistema de reservas de pasteles para eventos|599\nRealizar pruebas de seguridad del sitio web|600\nDiseñar la página de inicio"];
+node597->node602
+node602 [label="602\nCrear una galería de imagenes de pasteles|603\nPruebas de usabilidad en el proceso de pedido"];
 }

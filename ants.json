@@ -1,0 +1,310 @@
+{
+    "Tareas": [
+        {
+            "proyecto" :  "PY-100",
+            "codigo" : "T1-PY-100",
+            "antecesor" : [],
+            "pago" : "155"
+        },
+        {
+            "proyecto" :  "PY-100",
+            "codigo" : "T2-PY-100",
+            "antecesor" : [],
+            "pago" : "100"
+        },
+        {
+            "proyecto" :  "PY-100",
+            "codigo" : "T3-PY-100",
+            "antecesor" : [
+                {
+                    "codigo" : "T1-PY-100"
+                },
+                {
+                    "codigo" : "T2-PY-100"
+                }
+            ],
+            "pago" : "105"
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T4-PY-101",
+            "antecesor" : [],
+            "pago" : "150"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T5-PY-101",
+            "antecesor" : [],
+            "pago" : "116"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T6-PY-101",
+            "antecesor" : [],
+            "pago" : "155"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T7-PY-101",
+            "antecesor" : [
+                {
+                    "codigo" : "T4-PY-101"
+                },
+                {
+                    "codigo" : "T5-PY-101"
+                },
+                {
+                    "codigo" : "T6-PY-101"
+                }
+            ],
+            "pago" : "155"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T8-PY-101",
+            "antecesor" : [],
+            "pago" : "111"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T9-PY-101",
+            "antecesor" : [
+                {
+                    "codigo" : "T8-PY-101"
+                }
+            ],
+            "pago" : "155"            
+        },
+        {
+            "proyecto" :  "PY-101",
+            "codigo" : "T10-PY-101",
+            "antecesor" : [
+                {
+                    "codigo" : "T7-PY-101"
+                },
+                {
+                    "codigo" : "T9-PY-101"
+                }
+            ],
+            "pago" : "200"            
+        },
+        {
+            "proyecto" :  "PY-102",
+            "codigo" : "T11-PY-102",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-102",
+            "codigo" : "T12-PY-102",
+            "antecesor" : [
+                {
+                    "codigo" : "T11-PY-102"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-102",
+            "codigo" : "T13-PY-102",
+            "antecesor" : [
+                {
+                    "codigo" : "T12-PY-102"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-102",
+            "codigo" : "T14-PY-102",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-102",
+            "codigo" : "T15-PY-102",
+            "antecesor" : [
+                {
+                    "codigo" : "T14-PY-102"
+                },
+                {
+                    "codigo" : "T13-PY-102"
+                }
+            ],
+            "pago" : "300"            
+        },
+        {
+            "proyecto" :  "PY-103",
+            "codigo" : "T16-PY-103",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-103",
+            "codigo" : "T17-PY-103",
+            "antecesor" : [
+                {
+                    "codigo" : "T16-PY-103"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-103",
+            "codigo" : "T18-PY-103",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-103",
+            "codigo" : "T19-PY-103",
+            "antecesor" : [
+                {
+                    "codigo" : "T18-PY-103"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-103",
+            "codigo" : "T20-PY-103",
+            "antecesor" : [
+                {
+                    "codigo" : "T17-PY-103"
+                },
+                {
+                    "codigo" : "T19-PY-103"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-104",
+            "codigo" : "T21-PY-104",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-104",
+            "codigo" : "T22-PY-104",
+            "antecesor" : [
+                {
+                    "codigo" : "T21-PY-103"
+                }
+            ],
+            "pago" : "555"            
+        },
+        {
+            "proyecto" :  "PY-104",
+            "codigo" : "T23-PY-104",
+            "antecesor" : [
+                {
+                    "codigo" : "T22-PY-103"
+                }
+            ],
+            "pago" : "25"            
+        },
+        {
+            "proyecto" :  "PY-104",
+            "codigo" : "T24-PY-104",
+            "antecesor" : [
+                {
+                    "codigo" : "T23-PY-103"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-104",
+            "codigo" : "T25-PY-104",
+            "antecesor" : [
+                {
+                    "codigo" : "T24-PY-103"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T26-PY-108",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T27-PY-108",
+            "antecesor" : [],
+            "pago" : "50"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T28-PY-108",
+            "antecesor" : [
+                {
+                    "codigo":"T26-PY-108"
+                },
+                {
+                    "codigo" : "T27-PY-108"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T29-PY-108",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T30-PY-108",
+            "antecesor" : [
+                {
+                    "codigo" : "T29-PY-108"
+                },
+                {
+                    "codigo" : "T28-PY-108"
+                }
+            ],
+            "pago" : "120"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T31-PY-108",
+            "antecesor" : [],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T32-PY-108",
+            "antecesor" : [],
+            "pago" : "101"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T33-PY-108",
+            "antecesor" : [
+                {
+                    "codigo" : "T31-PY-108"
+                },
+                {
+                    "codigo" : "T32-PY-108"
+                }
+            ],
+            "pago" : "100"            
+        },
+        {
+            "proyecto" :  "PY-108",
+            "codigo" : "T34-PY-108",
+            "antecesor" : [
+                {
+                    "codigo" : "T30-PY-108"
+                },
+                {
+                    "codigo" : "T33-PY-108"
+                }
+            ],
+            "pago" : "400"            
+        }
+    ]
+}

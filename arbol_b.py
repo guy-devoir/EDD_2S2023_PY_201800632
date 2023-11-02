@@ -2,13 +2,16 @@ import os
 cmd = "dot -Tpng arbolB.dot -o arbolB.png"
 
 class Nodo:
-    def __init__(self, clave, id, valor, empleado, proyecto,tamanio=0):
+    def __init__(self, clave, id, valor, empleado, proyecto, precio = 0, anteriores = [], tamanio=0):
         self.clave = clave
         self.id = id
         self.valor = valor
         self.empleado = empleado
         self.proyecto = proyecto
         self.tamanio = tamanio
+        self.estado = "Sin comenzar"
+        self.anteriores = anteriores
+        self.precio = 0
 
 class NodoArbolB:
     def __init__(self, esHoja=False):
@@ -63,7 +66,7 @@ class ArbolB:
             z.hijos = y.hijos[grado: 2 * grado]
             y.hijos = y.hijos[0: grado - 1]
 
-    def buscar(self, clave, valor, nodo=None):
+    def buscar(self, clave, nodo=None):
         if nodo is not None:
             i = 0
             while i < len(nodo.clavesValores) and clave > nodo.clavesValores[i].clave:
@@ -73,9 +76,29 @@ class ArbolB:
             elif nodo.esHoja:
                 return None
             else:
-                return self.buscar(clave, valor, nodo.hijos[i])
+                return self.buscar(clave, nodo.hijos[i])
         else:
-            return self.buscar(clave, valor, self.raiz)
+            return self.buscar(clave, self.raiz)
+
+    def whole_tree(self, emp, x, root=False, l=0):
+        dotContent = []
+
+        l += 1
+        for i in x.clavesValores:
+            print(emp, "-", i.empleado)
+            if emp == i.empleado:
+                dotContent.append([i.clave, i.valor, i.proyecto])
+
+        if len(x.hijos) > 0:
+            for i in x.hijos:
+                print( emp, "==" ,i.clavesValores[0].empleado)
+                if emp == i.clavesValores[0].empleado:
+                    dotContent.append([i.clavesValores[0].clave, i.clavesValores[0].valor, i.clavesValores[0].proyecto])
+                    aux = self.whole_tree(emp, i, l)
+                    for value in aux:
+                        dotContent.append(value)
+                #dotContent.append(value)
+        return dotContent
 
     def generate_dot_b_tree(self, x):
         dotContent = "digraph G {\n node [shape=record]" + \

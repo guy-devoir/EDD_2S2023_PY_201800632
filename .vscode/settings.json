@@ -112,5 +112,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }
